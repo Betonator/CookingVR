@@ -46,4 +46,9 @@ public class HeatingPlate : MonoBehaviour
             Debug.Log("Stove off!");
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 }
