@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class HeatingPlate : MonoBehaviour
 {
-    private float currentHeat;
+    public float currentHeat;
     public float maxHeat = 100f;
+    public float heatingFactor = 0.2f;
+
+    private MeshRenderer plateRenderer;
 
     private WorkingState state;
     private enum WorkingState
@@ -17,6 +20,9 @@ public class HeatingPlate : MonoBehaviour
     void Start()
     {
         state = WorkingState.Idle;
+        currentHeat = 0;
+        plateRenderer = GetComponent<MeshRenderer>();
+        Mathf.Clamp(currentHeat,0.0f,maxHeat);
     }
 
     // Update is called once per frame
@@ -25,12 +31,16 @@ public class HeatingPlate : MonoBehaviour
         switch (state)
         {
             case WorkingState.Idle:
-                //cool down and stop fire function
+                //cool down and signalize it
+                currentHeat -= Time.deltaTime * heatingFactor/2;
                 break;
             case WorkingState.Heating:
-                //heat upp and call fire function
+                //heat upp and signalize it
+                currentHeat += Time.deltaTime * heatingFactor/2;
                 break;
         }
+        currentHeat = Mathf.Clamp(currentHeat, 0.0f, maxHeat);
+        UpdateMesh();
     }
 
     public void PowerSwitch()
@@ -47,8 +57,13 @@ public class HeatingPlate : MonoBehaviour
         }
     }
 
+    private void UpdateMesh()
+    {
+        plateRenderer.material.color = new Color(currentHeat/maxHeat,0f,0f,1f);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        
+        //call fry(currentHeat) on the pan once it's added
     }
 }
