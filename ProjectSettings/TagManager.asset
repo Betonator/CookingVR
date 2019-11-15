@@ -10,6 +10,7 @@ TagManager:
   - Yolk
   - Skillet
   - Knife
+  - Ingredient
   layers:
   - Default
   - TransparentFX
