@@ -59,11 +59,22 @@ public class HeatingPlate : MonoBehaviour
 
     private void UpdateMesh()
     {
-        plateRenderer.material.color = new Color(currentHeat/maxHeat,0f,0f,1f);
+        plateRenderer.material.SetColor("_BaseColor", new Color(currentHeat / maxHeat, 0f, 0f, 1f));
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //call fry(currentHeat) on the pan once it's added
+        if (collision.collider.CompareTag("Skillet"))
+        {
+            collision.collider.GetComponent<Skillet>().plate = this;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Skillet"))
+        {
+            collision.collider.GetComponent<Skillet>().plate = null;
+        }
     }
 }
