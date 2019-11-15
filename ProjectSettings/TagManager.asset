@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Hand
   - CustomButton
+  - White
+  - Yolk
+  - Skillet
+  - Knife
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Pushable
+  - VRHandPusher
   - 
   - 
   - 
