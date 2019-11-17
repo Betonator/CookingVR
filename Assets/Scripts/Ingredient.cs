@@ -12,6 +12,6 @@ public class Ingredient : MonoBehaviour
 
     public void IngredientFry(float heat)
     {
-
+        Debug.Log(this.gameObject.name + " is being fried");
     }
 }
