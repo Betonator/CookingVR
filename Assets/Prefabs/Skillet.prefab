@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 7694538856170550280}
   - component: {fileID: 132087941158738393}
   - component: {fileID: 3426741584588559600}
+  - component: {fileID: 1402609282}
   m_Layer: 0
   m_Name: SkilletModel
   m_TagString: Skillet
@@ -293,3 +294,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889254a8f322ff944a5209583ef35b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plate: {fileID: 0}
+  ingredients: []
+--- !u!65 &1402609282
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8283430737226383572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02, z: 0.008}
+  m_Center: {x: 0, y: 0, z: 0}
