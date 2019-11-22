@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 6735857883996606825}
   - component: {fileID: 6735857883996606831}
   - component: {fileID: 6735857883996606824}
+  - component: {fileID: 1447564330}
   m_Layer: 0
   m_Name: Skillet
   m_TagString: Skillet
@@ -258,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 6735857883996606827}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.902, y: 1.26, z: 1.498}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4949440076996719303}
   - {fileID: 6735857883452813887}
@@ -345,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 44
+  attachmentFlags: 16
   attachmentOffset: {fileID: 6735857883452813887}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
@@ -387,6 +388,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &1447564330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6735857883996606827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783750eec4c41da428b7651515146d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityAverageFrames: 5
+  angularVelocityAverageFrames: 11
+  estimateOnAwake: 0
 --- !u!1 &8283430737226383572
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +508,7 @@ BoxCollider:
   m_GameObject: {fileID: 8283430737226383572}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02, z: 0.008}
   m_Center: {x: 0, y: 0, z: 0}
