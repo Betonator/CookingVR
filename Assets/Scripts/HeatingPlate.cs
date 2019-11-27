@@ -62,19 +62,19 @@ public class HeatingPlate : MonoBehaviour
         plateRenderer.material.SetColor("_BaseColor", new Color(currentHeat / maxHeat, 0f, 0f, 1f));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.CompareTag("Skillet"))
+        if (collision.CompareTag("Skillet"))
         {
-            collision.collider.GetComponent<Skillet>().plate = this;
+            collision.GetComponent<Skillet>().plate = this;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-        if (collision.collider.CompareTag("Skillet"))
+        if (collision.CompareTag("Skillet"))
         {
-            collision.collider.GetComponent<Skillet>().plate = null;
+            collision.GetComponent<Skillet>().plate = null;
         }
     }
 }
