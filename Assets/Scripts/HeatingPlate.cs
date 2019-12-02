@@ -10,6 +10,7 @@ public class HeatingPlate : MonoBehaviour
 
     private MeshRenderer plateRenderer;
 
+    [SerializeField]
     private WorkingState state;
     private enum WorkingState
     {
