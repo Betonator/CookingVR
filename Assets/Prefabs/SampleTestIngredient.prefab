@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9df5ebee68303c49b21163ef4a75b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFriedLevel: 0
+  ingredientNameIndex: 1
+  currentFriedLevel: 20
   maxFriedLevel: 100
-  idealFriedLevel: 80
   additionalFryingScale: 0.1
   shizzleForceScale: 0.005
   shizzleInterval: 0.5
