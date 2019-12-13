@@ -67,12 +67,18 @@ public class RecipeDatabaseController : MonoBehaviour
     {
         dishSize = checkArea.ingredients.Count;
 
+        float ingredientFryLevelGrade = 0f;
+        float ingredientProportionGrade = 0f;
+        float dishSizeGrade = 0f;
+        float ingredientFriedLevelSum;
+        float ingredientAmounts;
+
         for (int i = 0; i < currentRecipe.ingredientIndexes.Count; i++)
         {
             ingredientProportions.Add(0.0f);
             ingredientFriedLevels.Add(0.0f);
-            float ingredientFriedLevelSum = 0f;
-            float ingredientAmounts = 0;
+            ingredientFriedLevelSum = 0f;
+            ingredientAmounts = 0;
             foreach (Ingredient ingredient in checkArea.ingredients)
             {
                 if (ingredient.ingredientNameIndex == currentRecipe.ingredientIndexes[i])
@@ -83,11 +89,14 @@ public class RecipeDatabaseController : MonoBehaviour
             }
             ingredientFriedLevels[i] = ingredientFriedLevelSum / ingredientAmounts;
             ingredientProportions[i] = 1.0f * ingredientAmounts / dishSize;
+
+            ingredientFryLevelGrade += (5.0f * (1.0f - (ingredientFriedLevels[i] / 
+                currentRecipe.idealIngredientFriedLevels[i]))) / currentRecipe.ingredientIndexes.Count;
+            ingredientProportionGrade += (5.0f * (1.0f - (ingredientProportions[i] / 
+                currentRecipe.ingredientProportions[i]))) / currentRecipe.ingredientIndexes.Count;
         }
 
-        float ingredientFryLevelGrade = 1.0f;
-        float ingredientProportionGrade = 1.0f;
-        float dishSizeGrade = 1.0f;
+        dishSizeGrade = 5.0f*(1.0f - (1.0f*dishSize/currentRecipe.idealDishSize));
 
         ingredientProportions.Clear();
         ingredientFriedLevels.Clear();
