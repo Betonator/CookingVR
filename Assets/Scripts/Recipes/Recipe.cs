@@ -5,13 +5,13 @@ using UnityEngine;
 public class Recipe
 {
     public string recipeName;
-    public int[] ingredientIndexes;
-    public float[] idealIngredientFriedLevels;
-    public float[] ingredientProportions;
+    public List<int> ingredientIndexes;
+    public List<float> idealIngredientFriedLevels;
+    public List<float> ingredientProportions;
     public int idealDishSize;
 
-    public Recipe(string recipeName, int[] ingredientIndexes,
-        float[] idealIngredientFriedLevels, float[] ingredientProportions,
+    public Recipe(string recipeName, List<int> ingredientIndexes,
+        List<float> idealIngredientFriedLevels, List<float> ingredientProportions,
         int idealDishSize)
     {
         this.recipeName = recipeName;
