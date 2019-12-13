@@ -10,9 +10,9 @@ public class Ingredient : MonoBehaviour
     private float shizzleForceFactor;
     private float shizzleTimer;
 
+    public int ingredientNameIndex;
     public float currentFriedLevel;
     public float maxFriedLevel;
-    public float idealFriedLevel;
     public float additionalFryingScale;
     public float shizzleForceScale;
     public float shizzleInterval;
