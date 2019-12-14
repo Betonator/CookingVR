@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeDatabaseController : MonoBehaviour
 {
@@ -8,19 +9,24 @@ public class RecipeDatabaseController : MonoBehaviour
     public Recipe currentRecipe;
     [SerializeField]
     private RecipeCheckArea checkArea;
+    [SerializeField]
+    private Text recipeText;
 
-    private List<float> ingredientProportions = new List<float>();
-    private List<float> ingredientFriedLevels = new List<float>();
+    private Dictionary<int, string> ingredientTypes;
+
     private int dishSize;
+    public float currentGrade = 0.0f;
 
     void Awake()
     {
         BuildRecipeList();
+        BuildIngredientDictionary();
     }
 
     private void Start()
     {
         SetCurrentRecipe(2); //later to be removed
+        UpdateRecipeText();
     }
 
     private void Update() //later to be removed
@@ -29,6 +35,16 @@ public class RecipeDatabaseController : MonoBehaviour
         {
             CheckDish();
         }
+    }
+
+    void BuildIngredientDictionary()
+    {
+        ingredientTypes = new Dictionary<int, string>()
+        {
+            { 0, "Bacon" },
+            { 1, "Tomato" },
+            { 2, "Mushroom" }
+        };
     }
 
     void BuildRecipeList()
@@ -63,7 +79,7 @@ public class RecipeDatabaseController : MonoBehaviour
         currentRecipe = recipeList.Find(recipe => recipe.recipeName == recipeName);
     }
 
-    public float CheckDish()
+    public void CheckDish()
     {
         dishSize = checkArea.ingredients.Count;
 
@@ -72,11 +88,13 @@ public class RecipeDatabaseController : MonoBehaviour
         float dishSizeGrade = 0f;
         float ingredientFriedLevelSum;
         float ingredientAmounts;
+        float ingredientProportions;
+        float ingredientFriedLevels;
 
         for (int i = 0; i < currentRecipe.ingredientIndexes.Count; i++)
         {
-            ingredientProportions.Add(0.0f);
-            ingredientFriedLevels.Add(0.0f);
+            ingredientProportions = 0f;
+            ingredientFriedLevels = 0f;
             ingredientFriedLevelSum = 0f;
             ingredientAmounts = 0;
             foreach (Ingredient ingredient in checkArea.ingredients)
@@ -87,30 +105,46 @@ public class RecipeDatabaseController : MonoBehaviour
                     ingredientFriedLevelSum += ingredient.currentFriedLevel;
                 }
             }
-            ingredientFriedLevels[i] = ingredientFriedLevelSum / ingredientAmounts;
-            ingredientProportions[i] = 1.0f * ingredientAmounts / dishSize;
+            ingredientFriedLevels = ingredientFriedLevelSum / ingredientAmounts;
+            ingredientProportions = 1.0f * ingredientAmounts / dishSize;
 
-            ingredientFryLevelGrade += (5.0f * (1.0f - (ingredientFriedLevels[i] / 
+            ingredientFryLevelGrade += (5.0f * (1.0f - (ingredientFriedLevels / 
                 currentRecipe.idealIngredientFriedLevels[i]))) / currentRecipe.ingredientIndexes.Count;
-            ingredientProportionGrade += (5.0f * (1.0f - (ingredientProportions[i] / 
+            ingredientProportionGrade += (5.0f * (1.0f - (ingredientProportions / 
                 currentRecipe.ingredientProportions[i]))) / currentRecipe.ingredientIndexes.Count;
         }
 
         dishSizeGrade = 5.0f*(1.0f - (1.0f*dishSize/currentRecipe.idealDishSize));
 
-        ingredientProportions.Clear();
-        ingredientFriedLevels.Clear();
-
         float grade = (ingredientFryLevelGrade + ingredientProportionGrade + 
             dishSizeGrade) / 3;
         Debug.Log("Your result: " + grade + "/5.0! Good job!");
-        return grade;
+        currentGrade = grade;
+        UpdateRecipeText(grade);
+    }
+
+    public void UpdateRecipeText()
+    {
+        recipeText.text = "Current recipe: " + currentRecipe.recipeName;
+        for (int i = 0; i < currentRecipe.ingredientIndexes.Count; i++)
+        {
+            recipeText.text += "\n" + (currentRecipe.ingredientProportions[i]).ToString() + " " +
+                ingredientTypes[currentRecipe.ingredientIndexes[i]] + ", " +
+                (currentRecipe.idealIngredientFriedLevels[i]).ToString() + "% done";
+        }
+        recipeText.text += "\nIdeal size: " + currentRecipe.idealDishSize.ToString() + " pieces";
+    }
+
+    public void UpdateRecipeText(float grade)
+    {
+        recipeText.text = "Current recipe: " + currentRecipe.recipeName;
+        for (int i = 0; i < currentRecipe.ingredientIndexes.Count; i++)
+        {
+            recipeText.text += "\n" + (currentRecipe.ingredientProportions[i]).ToString() + " " +
+                ingredientTypes[currentRecipe.ingredientIndexes[i]] + ", " +
+                (currentRecipe.idealIngredientFriedLevels[i]).ToString() + "% done";
+        }
+        recipeText.text += "\nIdeal size: " + currentRecipe.idealDishSize.ToString() + " pieces";
+        recipeText.text += "\nYour grade:\n" + grade.ToString() + "/5.0\nGood job! :)";
     }
 }
-
-/*
-    Ingredient indexes:
-    0 - Bacon
-    1 - Tomato
-    2 - Mushroom
-*/
