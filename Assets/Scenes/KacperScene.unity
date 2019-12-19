@@ -1070,8 +1070,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.987459e+17, y: 7.903257e+31, z: 0.000000012773715,
-    w: 7.3341654e+34}
+  m_BoundingSphereOverride: {x: 2.358e-42, y: 1.02e-43, z: 2.6909192e+20, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3169,6 +3168,96 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 22937
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ColorModule.gradient.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 823
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699639485, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699727645, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699727645, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01fcd1a236f734f4ab8208bb8ba45006, type: 2}
+    - target: {fileID: 6735857883699727645, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699727645, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699727645, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[5]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735857883699727645, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f6277ac87e0ee845ac51f7f9119ba8b, type: 3}
 --- !u!1001 &8627572650408972231
