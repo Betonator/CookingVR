@@ -17,8 +17,12 @@ public class Ingredient : MonoBehaviour
     public float shizzleForceScale;
     public float shizzleInterval;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
+    {
+        OnSpawn();
+    }
+
+    public void OnSpawn()
     {
         ingredientCollider = GetComponent<Collider>();
         ingredientBody = GetComponent<Rigidbody>();

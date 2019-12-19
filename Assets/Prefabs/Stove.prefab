@@ -187,6 +187,7 @@ MonoBehaviour:
   currentHeat: 0
   maxHeat: 100
   heatingFactor: 10
+  state: 1
 --- !u!64 &3469212018880502700
 MeshCollider:
   m_ObjectHideFlags: 0

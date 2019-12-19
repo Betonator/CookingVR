@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1337377888491026371}
   - component: {fileID: 4866584408965354790}
   m_Layer: 10
-  m_Name: SampleTestIngredient
+  m_Name: Cucumber
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd2d7be1c2e24424b8eba2ac080ef724, type: 2}
+  - {fileID: 2100000, guid: 88a3f2dc7519d234cb15ff834a532098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientNameIndex: 1
-  currentFriedLevel: 20
+  currentFriedLevel: 0
   maxFriedLevel: 100
-  additionalFryingScale: 0.1
+  additionalFryingScale: 0.2
   shizzleForceScale: 0.005
   shizzleInterval: 0.5
 --- !u!114 &4866584408965354790
@@ -141,8 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca61d4e1d64bcb94295c29acd93238fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childAmount: 4
+  childAmount: 10
   choppedStage: 1
   maxChoppedStage: 4
   invincibilityInterval: 1
-  skillet: {fileID: 0}
