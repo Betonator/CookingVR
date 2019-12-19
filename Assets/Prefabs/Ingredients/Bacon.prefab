@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1337377888491026371}
   - component: {fileID: 4866584408965354790}
   m_Layer: 10
-  m_Name: SampleTestIngredient
+  m_Name: Bacon
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd2d7be1c2e24424b8eba2ac080ef724, type: 2}
+  - {fileID: 2100000, guid: e3598f47ce6d95b43a64400b97555ff1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9df5ebee68303c49b21163ef4a75b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientNameIndex: 1
-  currentFriedLevel: 20
+  ingredientNameIndex: 0
+  currentFriedLevel: 0
   maxFriedLevel: 100
   additionalFryingScale: 0.1
   shizzleForceScale: 0.005
@@ -145,4 +145,3 @@ MonoBehaviour:
   choppedStage: 1
   maxChoppedStage: 4
   invincibilityInterval: 1
-  skillet: {fileID: 0}

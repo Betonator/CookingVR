@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Egg : MonoBehaviour
 {
@@ -22,10 +23,9 @@ public class Egg : MonoBehaviour
     {
         if (collision.transform.tag == "Skillet")
         {
-            GameObject Egg = Instantiate(eggRaw) as GameObject;
-            Egg.transform.parent = collision.transform;
-            Egg.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-            Destroy(this.gameObject);
+            GameObject eggRawEx = PrefabUtility.InstantiatePrefab(eggRaw) as GameObject;
+            eggRawEx.transform.position = this.transform.position;
+            Destroy(this);
         }
     }
 }

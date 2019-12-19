@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Skillet : MonoBehaviour
 {
+    [SerializeField] private float currentHeat;
+    public float deHeatingFactor = 0.2f;
+
     public HeatingPlate plate;
 
-    [SerializeField] private List<Ingredient> ingredients = new List<Ingredient>();
+    public static List<Ingredient> ingredients = new List<Ingredient>();
 
     void Update()
     {
         if (plate != null && ingredients.Count != 0)
         {
-            Fry(plate.currentHeat);
+            currentHeat = plate.currentHeat;
         }
+        else
+        {
+            currentHeat -= Time.deltaTime * deHeatingFactor;
+        }
+        Fry(currentHeat);
     }
 
     private void Fry(float heat)

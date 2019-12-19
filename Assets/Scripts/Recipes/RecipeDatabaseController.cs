@@ -42,7 +42,7 @@ public class RecipeDatabaseController : MonoBehaviour
         ingredientTypes = new Dictionary<int, string>()
         {
             { 0, "Bacon" },
-            { 1, "Tomato" },
+            { 1, "Cucumber" },
             { 2, "Mushroom" }
         };
     }
@@ -51,21 +51,21 @@ public class RecipeDatabaseController : MonoBehaviour
     {
         recipeList = new List<Recipe>()
         {
-            new Recipe("BaconTomato", //name
+            new Recipe("BaconCucumber", //name
             new List<int>{ 0, 1 }, //ingredient indexes
             new List<float>{ 80f, 90f}, //ingredient ideal fried levels
             new List<float>{ 0.4f, 0.6f}, //ingredient proportions (make sure the sum is 1)
-            20), //ideal dish size
+            2500), //ideal dish size
             new Recipe("BaconMushroom",
             new List<int>{ 0, 2 },
             new List<float>{ 60f, 80f},
             new List<float>{ 0.5f, 0.5f},
-            30),
-            new Recipe("TomatoMushroom",
+            1500),
+            new Recipe("CucumberMushroom",
             new List<int>{ 1, 2 },
             new List<float>{ 50f, 70f},
             new List<float>{ 0.3f, 0.7f},
-            25)
+            2000)
         };
     }
 
@@ -105,16 +105,20 @@ public class RecipeDatabaseController : MonoBehaviour
                     ingredientFriedLevelSum += ingredient.currentFriedLevel;
                 }
             }
-            ingredientFriedLevels = ingredientFriedLevelSum / ingredientAmounts;
-            ingredientProportions = 1.0f * ingredientAmounts / dishSize;
+            if(ingredientAmounts == 0){ ingredientFriedLevels = 0;
+                ingredientProportions = 0;
+            }
+            else { ingredientFriedLevels = ingredientFriedLevelSum / ingredientAmounts;
+                ingredientProportions = 1.0f * ingredientAmounts / dishSize;
+            }
 
-            ingredientFryLevelGrade += (5.0f * (1.0f - (ingredientFriedLevels / 
+            ingredientFryLevelGrade += (5.0f * (1.0f - ((currentRecipe.idealIngredientFriedLevels[i] - ingredientFriedLevels) / 
                 currentRecipe.idealIngredientFriedLevels[i]))) / currentRecipe.ingredientIndexes.Count;
-            ingredientProportionGrade += (5.0f * (1.0f - (ingredientProportions / 
+            ingredientProportionGrade += (5.0f * (1.0f - ((currentRecipe.ingredientProportions[i] - ingredientProportions) / 
                 currentRecipe.ingredientProportions[i]))) / currentRecipe.ingredientIndexes.Count;
         }
 
-        dishSizeGrade = 5.0f*(1.0f - (1.0f*dishSize/currentRecipe.idealDishSize));
+        dishSizeGrade = 5.0f*(1.0f - (1.0f*(currentRecipe.idealDishSize - dishSize) / currentRecipe.idealDishSize));
 
         float grade = (ingredientFryLevelGrade + ingredientProportionGrade + 
             dishSizeGrade) / 3;

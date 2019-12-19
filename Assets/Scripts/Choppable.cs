@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class Choppable : MonoBehaviour
 {
-    public int childAmount = 4;
+    public int childAmount = 2;
     public int choppedStage = 1;
     public int maxChoppedStage = 4;
     public float invincibilityInterval = 1.0f;
     private float invincibilityTimer;
-    private bool notChoppable;
+    private bool choppable;
+    private float scaleOfChilds = 0.01f;
     BoxCollider chopCollider;
     // Start is called before the first frame update
     void Start()
     {
         invincibilityTimer = invincibilityInterval;
-        notChoppable = true;
+        choppable = false;
         chopCollider = GetComponent<BoxCollider>();
     }
 
 	// Update is called once per frame
 	void Update()
 	{
-        if (notChoppable)
+        if (!choppable)
         {
             invincibilityTimer -= Time.deltaTime;
             if(invincibilityTimer <= 0.0f)
             {
-                notChoppable = false;
+                choppable = true;
             }
         }
     }
@@ -36,12 +37,18 @@ public class Choppable : MonoBehaviour
     {
         if (other.CompareTag("Knife"))
         {
-            if (!notChoppable)
+            if (choppable && (this.choppedStage < maxChoppedStage))
             {
-                GameObject newChild = Instantiate(this.gameObject);
-                //newChild.transform.position = new Vector3();
-                //newChild.GetComponent<Choppable>().choppedStage = choppedStage + 1;
-                //Destroy(this.gameObject);
+                for (int i = 0; i < childAmount; i++)
+                {
+                    GameObject newChild = Instantiate(this.gameObject);
+                    newChild.transform.position = this.transform.position;
+                    newChild.transform.localScale -= newChild.transform.localScale * 0.2f;
+                    newChild.GetComponent<Choppable>().choppedStage = choppedStage + 1;
+                    newChild.GetComponent<Ingredient>().OnSpawn();
+                }
+                Skillet.ingredients.Remove(this.GetComponent<Ingredient>());
+                Destroy(this.gameObject);
             }
         }
     }
