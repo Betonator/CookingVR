@@ -23,7 +23,6 @@ public class HeatingPlate : MonoBehaviour
         state = WorkingState.Idle;
         currentHeat = 0;
         plateRenderer = GetComponent<MeshRenderer>();
-        Mathf.Clamp(currentHeat,0.0f,maxHeat);
     }
 
     // Update is called once per frame
