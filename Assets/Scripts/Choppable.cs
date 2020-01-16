@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Choppable : MonoBehaviour
 {
@@ -43,9 +44,15 @@ public class Choppable : MonoBehaviour
                 {
                     GameObject newChild = Instantiate(this.gameObject);
                     newChild.transform.position = this.transform.position;
-                    newChild.transform.localScale -= newChild.transform.localScale * 0.2f;
+                    newChild.transform.localScale -= newChild.transform.localScale * (1.0f - (1.0f/Mathf.Pow(childAmount,(1.0f/3.0f))));
                     newChild.GetComponent<Choppable>().choppedStage = choppedStage + 1;
                     newChild.GetComponent<Ingredient>().OnSpawn();
+                    if (newChild.GetComponent<Choppable>().choppedStage == maxChoppedStage)
+                    {
+                        newChild.GetComponent<Interactable>().enabled = false;
+                        newChild.GetComponent<Throwable>().enabled = false;
+                        newChild.GetComponent<VelocityEstimator>().enabled = false;
+                    }
                 }
                 Skillet.ingredients.Remove(this.GetComponent<Ingredient>());
                 Destroy(this.gameObject);
