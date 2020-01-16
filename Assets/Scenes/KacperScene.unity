@@ -671,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 1288636631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.197927, y: -4.3641176, z: 1.8367065}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000004, y: 1.0000007, z: 1.0000007}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -1177,31 +1177,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735857884120133829, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
-        type: 3}
-      propertyPath: CollisionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735857884120133829, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
-        type: 3}
-      propertyPath: CollisionModule.type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735857884120133829, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
-        type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 823
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735857884120133829, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735857884120133829, guid: 4f6277ac87e0ee845ac51f7f9119ba8b,
-        type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f6277ac87e0ee845ac51f7f9119ba8b, type: 3}
