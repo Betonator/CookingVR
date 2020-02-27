@@ -24,8 +24,8 @@ TagManager:
   - VRHandPusher
   - Ingredient
   - 
-  - 
-  - 
+  - PlayerHand
+  - Unpickupable
   - 
   - 
   - 
