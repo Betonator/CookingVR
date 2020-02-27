@@ -135,7 +135,7 @@ MonoBehaviour:
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  attachEaseIn: 1
+  attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
     m_Curve:

@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632911064522975681}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632911064522988747}
   - component: {fileID: 632911064532982199}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 632911064533017643}
   - component: {fileID: 674852931993072757}
   - component: {fileID: 674852932352859353}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 632911064532837557}
   - component: {fileID: 674852932651739639}
   - component: {fileID: 674852909610740991}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632911064523064023}
   - component: {fileID: 632911064532933787}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1380,7 +1380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632911064522966867}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: HoverPoint
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632911064523077321}
   - component: {fileID: 632911064533037383}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,7 +1456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632911064523037807}
   - component: {fileID: 632911064532938963}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2004,7 +2004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632395932306793147}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: HoverPoint
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -2128,7 +2128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632395931262335535}
-  m_Layer: 26
+  m_Layer: 12
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,8 +11,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.011276722, y: 0.019586692, z: 0.000876787}
-  m_Center: {x: 0, y: 0.0017853081, z: -0.0000000018626451}
+  m_Size: {x: 0.011276722, y: 0.016238868, z: 0.000876787}
+  m_Center: {x: 0, y: 0.00011139549, z: -0.0000000018626451}
 --- !u!1 &8847447869117539952
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 8847447869117539965}
   - component: {fileID: 8847447869117539964}
   - component: {fileID: 8847447869117539967}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ChoppingBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
   useHandObjectAttachmentPoint: 1
-  attachEaseIn: 1
+  attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
     m_Curve:
@@ -195,6 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8847447870579027232}
+  - component: {fileID: 398491664}
   m_Layer: 0
   m_Name: GrabbingPoint
   m_TagString: Untagged
@@ -216,6 +217,19 @@ Transform:
   m_Father: {fileID: 8847447869117539953}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: -90, z: -90}
+--- !u!65 &398491664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847447870579027235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.15, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2894997009184381206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: board
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85cdf7afb9194dc47b75f5f1922efd8b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85cdf7afb9194dc47b75f5f1922efd8b,
         type: 3}

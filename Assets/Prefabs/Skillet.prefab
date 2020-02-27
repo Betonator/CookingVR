@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1275030947}
   - component: {fileID: 1275030946}
   - component: {fileID: 1275030945}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SkilletCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 1475665997}
   - component: {fileID: 1475665996}
   - component: {fileID: 1475665995}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SkilletCollider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,6 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6735857883452813887}
+  - component: {fileID: 1844756547}
   m_Layer: 0
   m_Name: HoldingPoint
   m_TagString: Untagged
@@ -230,6 +231,19 @@ Transform:
   m_Father: {fileID: 6735857883996606826}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 180, z: -90}
+--- !u!65 &1844756547
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6735857883452813880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6735857883996606827
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +431,7 @@ GameObject:
   - component: {fileID: 7694538856170550280}
   - component: {fileID: 3426741584588559600}
   - component: {fileID: 1402609282}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SkilletModel
   m_TagString: Skillet
   m_Icon: {fileID: 0}
