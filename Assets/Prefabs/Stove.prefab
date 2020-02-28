@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHeat: 0
   maxHeat: 100
-  heatingFactor: 10
+  heatingFactor: 5
   state: 1
 --- !u!64 &3469212018880502700
 MeshCollider:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHeat: 0
   maxHeat: 100
-  heatingFactor: 10
+  heatingFactor: 5
   state: 1
 --- !u!64 &7057264135189786245
 MeshCollider:
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHeat: 0
   maxHeat: 100
-  heatingFactor: 10
+  heatingFactor: 5
   state: 1
 --- !u!64 &579560312697026423
 MeshCollider:
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHeat: 0
   maxHeat: 100
-  heatingFactor: 10
+  heatingFactor: 5
   state: 1
 --- !u!64 &8493505216133796003
 MeshCollider:
