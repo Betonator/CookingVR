@@ -36,7 +36,7 @@ public class HeatingPlate : MonoBehaviour
                 break;
             case WorkingState.Heating:
                 //heat upp and signalize it
-                currentHeat += Time.deltaTime * heatingFactor/2;
+                currentHeat += Time.deltaTime * heatingFactor;
                 break;
         }
         currentHeat = Mathf.Clamp(currentHeat, 0.0f, maxHeat);

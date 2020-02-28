@@ -55,17 +55,17 @@ public class RecipeDatabaseController : MonoBehaviour
             new List<int>{ 0, 1 }, //ingredient indexes
             new List<float>{ 80f, 90f}, //ingredient ideal fried levels
             new List<float>{ 0.4f, 0.6f}, //ingredient proportions (make sure the sum is 1)
-            2500), //ideal dish size
+            25), //ideal dish size
             new Recipe("BaconMushroom",
             new List<int>{ 0, 2 },
             new List<float>{ 60f, 80f},
             new List<float>{ 0.5f, 0.5f},
-            1500),
+            15),
             new Recipe("CucumberMushroom",
             new List<int>{ 1, 2 },
             new List<float>{ 50f, 70f},
             new List<float>{ 0.3f, 0.7f},
-            2000)
+            20)
         };
     }
 
@@ -85,40 +85,38 @@ public class RecipeDatabaseController : MonoBehaviour
 
         float ingredientFryLevelGrade = 0f;
         float ingredientProportionGrade = 0f;
-        float dishSizeGrade = 0f;
-        float ingredientFriedLevelSum;
-        float ingredientAmounts;
+        float currentIngredientFriedLevelSum;
+        float currentIngredientAmount;
         float ingredientProportions;
         float ingredientFriedLevels;
 
-        for (int i = 0; i < currentRecipe.ingredientIndexes.Count; i++)
+        for (int i = 0; i < currentRecipe.ingredientIndexes.Count; i++) //1 loop for each ingredient type
         {
-            ingredientProportions = 0f;
-            ingredientFriedLevels = 0f;
-            ingredientFriedLevelSum = 0f;
-            ingredientAmounts = 0;
-            foreach (Ingredient ingredient in checkArea.ingredients)
+            currentIngredientFriedLevelSum = 0f;
+            currentIngredientAmount = 0;
+            foreach (Ingredient ingredient in checkArea.ingredients) //take the ingredients we want to check from the whole
             {
                 if (ingredient.ingredientNameIndex == currentRecipe.ingredientIndexes[i])
                 {
-                    ingredientAmounts += 1;
-                    ingredientFriedLevelSum += ingredient.currentFriedLevel;
+                    currentIngredientAmount += 1;
+                    currentIngredientFriedLevelSum += ingredient.currentFriedLevel;
                 }
             }
-            if(ingredientAmounts == 0){ ingredientFriedLevels = 0;
+            if(currentIngredientAmount == 0){ ingredientFriedLevels = 0;
                 ingredientProportions = 0;
             }
-            else { ingredientFriedLevels = ingredientFriedLevelSum / ingredientAmounts;
-                ingredientProportions = 1.0f * ingredientAmounts / dishSize;
+            else { ingredientFriedLevels = currentIngredientFriedLevelSum / currentIngredientAmount;
+                ingredientProportions = 1.0f * currentIngredientAmount / dishSize;
             }
 
-            ingredientFryLevelGrade += (5.0f * (1.0f - ((currentRecipe.idealIngredientFriedLevels[i] - ingredientFriedLevels) / 
-                currentRecipe.idealIngredientFriedLevels[i]))) / currentRecipe.ingredientIndexes.Count;
-            ingredientProportionGrade += (5.0f * (1.0f - ((currentRecipe.ingredientProportions[i] - ingredientProportions) / 
-                currentRecipe.ingredientProportions[i]))) / currentRecipe.ingredientIndexes.Count;
+            ingredientFryLevelGrade += 5.0f * Mathf.Abs((currentRecipe.idealIngredientFriedLevels[i] - ingredientFriedLevels) / 
+                currentRecipe.idealIngredientFriedLevels[i]) / currentRecipe.ingredientIndexes.Count;
+            ingredientProportionGrade += 5.0f * Mathf.Abs((currentRecipe.ingredientProportions[i] - ingredientProportions) / 
+                currentRecipe.ingredientProportions[i]) / currentRecipe.ingredientIndexes.Count;
         }
 
-        dishSizeGrade = 5.0f*(1.0f - (1.0f*(currentRecipe.idealDishSize - dishSize) / currentRecipe.idealDishSize));
+        float dishSizeGrade = 5.0f* Mathf.Abs(1.0f*(currentRecipe.idealDishSize - dishSize) / 
+            currentRecipe.idealDishSize);
 
         float grade = (ingredientFryLevelGrade + ingredientProportionGrade + 
             dishSizeGrade) / 3;
