@@ -109,14 +109,14 @@ public class RecipeDatabaseController : MonoBehaviour
                 ingredientProportions = 1.0f * currentIngredientAmount / dishSize;
             }
 
-            ingredientFryLevelGrade += 5.0f * Mathf.Abs((currentRecipe.idealIngredientFriedLevels[i] - ingredientFriedLevels) / 
-                currentRecipe.idealIngredientFriedLevels[i]) / currentRecipe.ingredientIndexes.Count;
-            ingredientProportionGrade += 5.0f * Mathf.Abs((currentRecipe.ingredientProportions[i] - ingredientProportions) / 
-                currentRecipe.ingredientProportions[i]) / currentRecipe.ingredientIndexes.Count;
+            ingredientFryLevelGrade += 5.0f * (1.0f - Mathf.Abs((currentRecipe.idealIngredientFriedLevels[i] - ingredientFriedLevels) / 
+                currentRecipe.idealIngredientFriedLevels[i])) / currentRecipe.ingredientIndexes.Count;
+            ingredientProportionGrade += 5.0f * (1.0f - Mathf.Abs((currentRecipe.ingredientProportions[i] - ingredientProportions) / 
+                currentRecipe.ingredientProportions[i])) / currentRecipe.ingredientIndexes.Count;
         }
 
-        float dishSizeGrade = 5.0f* Mathf.Abs(1.0f*(currentRecipe.idealDishSize - dishSize) / 
-            currentRecipe.idealDishSize);
+        float dishSizeGrade = 5.0f * (1.0f - Mathf.Abs(1.0f*(currentRecipe.idealDishSize - dishSize) / 
+            currentRecipe.idealDishSize));
 
         float grade = (ingredientFryLevelGrade + ingredientProportionGrade + 
             dishSizeGrade) / 3;
